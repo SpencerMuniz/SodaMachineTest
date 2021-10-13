@@ -110,7 +110,11 @@ class TestDetermineChangevalue(unittest.TestCase):
  
 
 
-
+class TestDetermineChangevalue(unittest.TestCase):
+    """ Test types of coins that can be returned from the register"""
+        
+    def setUp(self):
+            self.determine_change_value = SodaMachine() 
 
 
 if __name__ == '__main__':

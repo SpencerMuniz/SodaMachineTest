@@ -38,14 +38,14 @@ class TestAddCoinsToWallet(unittest.TestCase):
 
     def setUp(self):
         self.customer = Customer()
-        #self.wallet = Wallet()
+        
 
     def test_add_coins_to_wallet(self):
         """Pass in list of three coins, method should return the updated list"""
         coins = ["Quarter", "Quarter", "Dime"]
         self.customer.add_coins_to_wallet(coins)
-        length = len(self.wallet.money)
-        self.assertEqual(length, len(coins))
+        length = len(self.customer.wallet.money)
+        self.assertEqual(length, 91)
         
 
 
