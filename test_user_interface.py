@@ -58,5 +58,26 @@ class TestDisplayPaymentValue(unittest.TestCase):
         total_value = user_interface.display_payment_value(list_of_money)
         self.assertEqual(total_value, 0) 
 
+
+class TestValidateCoinSelection(unittest.TestCase):
+    def test_validate_coin_selection(self):
+        answer_one = user_interface.validate_coin_selection(1)
+        self.assertEqual(answer_one, (True, "Quarter"))
+    def test_validate_coin_selection_two(self):
+        answer_two = user_interface.validate_coin_selection(2)
+        self.assertEqual(answer_two, (True, "Dime"))
+    def test_validate_coin_selection_three(self):
+        answer_three = user_interface.validate_coin_selection(3)
+        self.assertEqual(answer_three, (True, "Nickel"))
+    def test_validate_coin_selection_four(self):
+        answer_four = user_interface.validate_coin_selection(4)
+        self.assertEqual(answer_four, (True, "Penny"))
+    def test_validate_coin_selection_five(self):
+        answer_five = user_interface.validate_coin_selection(5)
+        self.assertEqual(answer_five, (True, "Done"))
+    def test_validate_coin_selection_six(self):
+        answer_six = user_interface.validate_coin_selection(6)
+        self.assertEqual(answer_six, (False, None))
+
 if __name__ == '__main__':
     unittest.main()
