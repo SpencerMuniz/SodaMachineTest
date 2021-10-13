@@ -31,33 +31,37 @@ class TestGetCoinFromRegister(unittest.TestCase):
         self.coins_from_register = SodaMachine()
 
     def test_get_coins_from_register_quarter(self):
-        """ Test that each type of coinn can be returned from register """
+        """ Test that Quarter can be returned from register """
         coin = self.coins_from_register.get_coin_from_register('Quarter')
         self.assertEqual('Quarter', coin.name)
 
     def test_get_coins_from_register_dime(self):
-        """ Test that each type of coinn can be returned from register """
+        """ Test that Dime can be returned from register """
         coin = self.coins_from_register.get_coin_from_register('Dime')
         self.assertEqual('Dime', coin.name)
     
     def test_get_coins_from_register_nickel(self):
-        """ Test that each type of coinn can be returned from register """
+        """ Test that Nickel can be returned from register """
         coin = self.coins_from_register.get_coin_from_register('Nickel')
         self.assertEqual('Nickel', coin.name)
     
     def test_get_coins_from_register_penny(self):
-        """ Test that each type of coinn can be returned from register """
+        """ Test that Penny can be returned from register """
         coin = self.coins_from_register.get_coin_from_register('Penny')
         self.assertEqual('Penny', coin.name)
 
     def test_get_coins_from_register_none(self):
-        """ Test that each type of coinn can be returned from register """
+        """ Test that None type can be returned from register """
         coin = self.coins_from_register.get_coin_from_register('test_coin')
         self.assertIsNone(coin)
         
 
     class test_register_has_coins(unittest.TestCase):
         """ Test types of coins that can be returned from the register"""
+        def setUp(self):
+            self.register_has_coins = SodaMachine() 
+
+        def 
 
 
 
