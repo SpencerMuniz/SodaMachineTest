@@ -162,5 +162,24 @@ class TestGetInventorySoda(unittest.TestCase):
         self.assertEqual(ResultOrangeSoda, None)
 
 
+
+
+class TestDepositCoinsIntoRegister(unittest.TestCase):
+    """ Test types of coins that can be returned from the register"""
+        
+    def setUp(self):
+            self.deposit_coins_into_register = SodaMachine()
+
+    def deposit_coins_into_register(self):
+        """Test the calculation  of coin value"""
+        Quarter = coins.Quarter()
+        Dime = coins.Dime()
+        Nickel = coins.Nickel()
+        Penny = coins.Penny()
+        coinlist = [Quarter,Dime,Nickel,Penny]
+        self.deposit_coins_into_register(coinlist)
+        self.assertEqual(len(self.register),97)
+
+
 if __name__ == '__main__':
     unittest.main()
