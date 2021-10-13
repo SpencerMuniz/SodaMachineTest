@@ -1,4 +1,3 @@
-from _typeshed import Self
 import unittest
 from soda_machine import SodaMachine
 
@@ -31,33 +30,86 @@ class TestGetCoinFromRegister(unittest.TestCase):
         self.coins_from_register = SodaMachine()
 
     def test_get_coins_from_register_quarter(self):
-        """ Test that each type of coinn can be returned from register """
+        """ Test that Quarter can be returned from register """
         coin = self.coins_from_register.get_coin_from_register('Quarter')
         self.assertEqual('Quarter', coin.name)
 
     def test_get_coins_from_register_dime(self):
-        """ Test that each type of coinn can be returned from register """
+        """ Test that Dime can be returned from register """
         coin = self.coins_from_register.get_coin_from_register('Dime')
         self.assertEqual('Dime', coin.name)
     
     def test_get_coins_from_register_nickel(self):
-        """ Test that each type of coinn can be returned from register """
+        """ Test that Nickel can be returned from register """
         coin = self.coins_from_register.get_coin_from_register('Nickel')
         self.assertEqual('Nickel', coin.name)
     
     def test_get_coins_from_register_penny(self):
-        """ Test that each type of coinn can be returned from register """
+        """ Test that Penny can be returned from register """
         coin = self.coins_from_register.get_coin_from_register('Penny')
         self.assertEqual('Penny', coin.name)
 
     def test_get_coins_from_register_none(self):
-        """ Test that each type of coinn can be returned from register """
+        """ Test that None type can be returned from register """
         coin = self.coins_from_register.get_coin_from_register('test_coin')
         self.assertIsNone(coin)
         
 
-    class test_register_has_coins(unittest.TestCase):
-        """ Test types of coins that can be returned from the register"""
+class TestRegisterHasCoins(unittest.TestCase):
+    """ Test types of coins that can be returned from the register"""
+        
+    def setUp(self):
+            self.register_has_coins = SodaMachine() 
+
+    def test_register_has_coins(self):
+        """ Test that Quarter type can be returned from register """
+        answer = self.register_has_coins.register_has_coin('Quarter')
+        self.assertTrue(answer)
+
+    def test_register_has_coins(self):
+        """ Test that Dime type can be returned from register """
+        answer = self.register_has_coins.register_has_coin('Dime')
+        self.assertTrue(answer)
+
+    def test_register_has_coins(self):
+        """ Test that Nickel type can be returned from register """
+        answer = self.register_has_coins.register_has_coin('Nickel')
+        self.assertTrue(answer)
+
+    def test_register_has_coins(self):
+        """ Test that Penny type can be returned from register """
+        answer = self.register_has_coins.register_has_coin('Penny')
+        self.assertTrue(answer)
+
+    def test_register_has_coins(self):
+        """ Test that False type can be returned from register """
+        answer = self.register_has_coins.register_has_coin('test_coin')
+        self.assertFalse(answer)
+
+
+class TestDetermineChangevalue(unittest.TestCase):
+    """ Test types of coins that can be returned from the register"""
+        
+    def setUp(self):
+            self.determine_change_value = SodaMachine() 
+
+    def test_determine_change_value_total_higher(self):
+        """Test to ensure change value is correct """
+        amount = self.determine_change_value.determine_change_value(20, 5)
+        self.assertEquals(amount,15)
+    
+    def test_determine_change_value_soda_higher(self):
+        """Test to ensure change value is correct """
+        amount = self.determine_change_value.determine_change_value(5, 8)
+        self.assertEquals(amount,-3)
+
+    def test_determine_change_value_equal(self):
+        """Test to ensure change value is correct """
+        amount = self.determine_change_value.determine_change_value(5,5)
+        self.assertEquals(amount,0)
+ 
+
+
 
 
 
