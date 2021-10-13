@@ -47,6 +47,8 @@ class TestAddCoinsToWallet(unittest.TestCase):
         self.customer.add_coins_to_wallet(coins)
         length = len(self.customer.wallet.money)
         self.assertEqual(length, 91)
+
+      
         
     def test_add_nothing_to_wallet(self):
         """Pass in list of nothing, method should return the original list"""
@@ -55,7 +57,7 @@ class TestAddCoinsToWallet(unittest.TestCase):
         length = len(self.customer.wallet.money)
         self.assertEqual(length, 0)
 
-        #Works but only because method above does not work
+    
 
 class TestAddACanToBAckpack(unittest.TestCase):
     """Test's for adding a can to the Customer's Backpack"""

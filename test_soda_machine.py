@@ -1,4 +1,5 @@
 import unittest
+from cans import Cola
 from soda_machine import SodaMachine
 
 class TestFillRegister(unittest.TestCase):
@@ -110,12 +111,22 @@ class TestDetermineChangevalue(unittest.TestCase):
  
 
 
-class TestDetermineChangevalue(unittest.TestCase):
-    """ Test types of coins that can be returned from the register"""
+# class TestDetermineChangevalue(unittest.TestCase):
+#     """ Test types of coins that can be returned from the register"""
         
-    def setUp(self):
-            self.determine_change_value = SodaMachine() 
+#     def setUp(self):
+#             self.determine_change_value = SodaMachine() 
 
+class TestReturnInventory(unittest.TestCase):
+    """Test takes a can and adds it back into inventory"""
+    def setUp(self):
+        self.inventory = SodaMachine()
+
+    def test_return_inventory(self):
+        soda = Cola
+        self.inventory.return_inventory(soda)
+        length = len(self.inventory.inventory)
+        self.assertEqual(31,length)
 
 if __name__ == '__main__':
     unittest.main()
