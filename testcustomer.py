@@ -38,7 +38,7 @@ class TestAddCoinsToWallet(unittest.TestCase):
 
     def setUp(self):
         self.customer = Customer()
-        self.wallet = Wallet()
+        #self.wallet = Wallet()
 
     def test_add_coins_to_wallet(self):
         """Pass in list of three coins, method should return the updated list"""

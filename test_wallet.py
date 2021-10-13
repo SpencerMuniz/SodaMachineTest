@@ -11,8 +11,8 @@ class TestFillWallet(unittest.TestCase):
 
     def test_fill_wallet(self):
         """ Test the length of the wallet object """
-        lenght = len(self.wallet.money)
-        self.assertEqual(88,lenght)
+        length = len(self.wallet.money)
+        self.assertEqual(88,length)
 
         
 
