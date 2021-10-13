@@ -1,6 +1,7 @@
 import unittest
 from cans import Cola
 from soda_machine import SodaMachine
+import coins
 
 class TestFillRegister(unittest.TestCase):
     """ Test the fill register method """
@@ -111,14 +112,57 @@ class TestDetermineChangevalue(unittest.TestCase):
  
 
 
-# class TestDetermineChangevalue(unittest.TestCase):
-#     """ Test types of coins that can be returned from the register"""
-        
-#     def setUp(self):
-#             self.determine_change_value = SodaMachine() 
-
-class TestReturnInventory(unittest.TestCase):
+class TestCalcuateCoinValue(unittest.TestCase):
     """Test takes a can and adds it back into inventory"""
+    def setUp(self):
+            self.calculate_coin_value = SodaMachine() 
+
+    def test_calculate_coin_value(self):
+        """Test the calculation  of coin value"""
+        Quarter = coins.Quarter()
+        Dime = coins.Dime()
+        Nickel = coins.Nickel()
+        Penny = coins.Penny()
+        coinlist = [Quarter,Dime,Nickel,Penny]
+        value_of_coins = self.calculate_coin_value.calculate_coin_value(coinlist)
+        self.assertEqual(.41,value_of_coins)
+
+    def test_calculate_coin_value_empty(self):
+        """Test the calculation  of coin value wwith empty list"""
+       
+        coinlist = []
+        value_of_coins = self.calculate_coin_value.calculate_coin_value(coinlist)
+        self.assertEqual(0,value_of_coins)
+
+class TestGetInventorySoda(unittest.TestCase):
+    """ Test types of coins that can be returned from the register"""
+        
+    def setUp(self):
+            self.get_inventory_soda = SodaMachine()
+
+    def test_get_inventory_soda_cola(self):
+        """ Test if result matches soda added 'Cola' """
+        ResultCola = self.get_inventory_soda.get_inventory_soda("Cola")
+        self.assertEqual(ResultCola.name,"Cola")
+    
+    def test_get_inventory_soda_rootbeer(self):
+        """ Test if result matches soda added 'Root Beer' """
+        ResultRootBeer = self.get_inventory_soda.get_inventory_soda("Root Beer")
+        self.assertEqual(ResultRootBeer.name,"Root Beer")
+
+    def test_get_inventory_soda_orangesoda(self):
+        """ Test if result matches soda added 'Orange Soda' """
+        ResultOrangeSoda = self.get_inventory_soda.get_inventory_soda("Orange Soda")
+        self.assertEqual(ResultOrangeSoda.name,"Orange Soda")
+
+    
+    def test_get_inventory_soda_none(self):
+        """ Test if result will return none """
+        ResultOrangeSoda = self.get_inventory_soda.get_inventory_soda("Mountain Dew")
+        self.assertEqual(ResultOrangeSoda, None)
+
+class TestReturnInventroy(unittest.TestCase):
+
     def setUp(self):
         self.inventory = SodaMachine()
 
