@@ -1,4 +1,6 @@
 import unittest
+from backpack import Backpack
+from cans import Cola
 from customer import Customer
 from wallet import Wallet
 
@@ -38,15 +40,39 @@ class TestAddCoinsToWallet(unittest.TestCase):
 
     def setUp(self):
         self.customer = Customer()
-        #self.wallet = Wallet()
 
     def test_add_coins_to_wallet(self):
         """Pass in list of three coins, method should return the updated list"""
         coins = ["Quarter", "Quarter", "Dime"]
         self.customer.add_coins_to_wallet(coins)
         length = len(self.wallet.money)
-        self.assertEqual(length, len(coins))
+        self.assertEqual(length, 91)
+
+        #Failed to add needs and method is never called within program
         
+    def test_add_nothing_to_wallet(self):
+        """Pass in list of nothing, method should return the original list"""
+        coins = []
+        self.customer.add_coins_to_wallet(coins)
+        length = len(self.customer.wallet.money)
+        self.assertEqual(length, 0)
+
+        #Works but only because method above does not work
+
+class TestAddACanToBAckpack(unittest.TestCase):
+    """Test's for adding a can to the Customer's Backpack"""
+
+    def setUp(self):
+        self.customer = Customer()
+        self.backpack = Backpack()
+
+    def test_add_a_can_to_backpack(self):
+        """Pass a can object into backpack, method should return length of can added to customers backpack"""
+
+        cola = Cola()
+        self.customer.add_can_to_backpack(cola)
+        length = len(self.customer.backpack.purchased_cans)      
+        self.assertEquals(length, 1)
 
 
 if __name__ == '__main__':
