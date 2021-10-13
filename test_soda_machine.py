@@ -110,11 +110,21 @@ class TestDetermineChangevalue(unittest.TestCase):
  
 
 
-class TestDetermineChangevalue(unittest.TestCase):
+class TestCalculateCoinvalue(unittest.TestCase):
     """ Test types of coins that can be returned from the register"""
         
     def setUp(self):
-            self.determine_change_value = SodaMachine() 
+            self.calculate_coin_value = SodaMachine() 
+
+    def test_calculate_coin_value(self):
+        """Test the calculation  of coin value"""
+        Quarter = self.calculate_coin_value.Quarter
+        Dime = 
+        Nickel = 
+        Penny = 
+        coinlist = [Quarter,Dime,Nickel,Penny]
+        value_of_coins = self.calculate_coin_value(coinlist)
+        self.assertEqual(.41,value_of_coins)
 
 
 if __name__ == '__main__':
