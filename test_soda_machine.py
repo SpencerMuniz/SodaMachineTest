@@ -1,4 +1,3 @@
-from _typeshed import Self
 import unittest
 from soda_machine import SodaMachine
 
@@ -56,12 +55,61 @@ class TestGetCoinFromRegister(unittest.TestCase):
         self.assertIsNone(coin)
         
 
-    class test_register_has_coins(unittest.TestCase):
-        """ Test types of coins that can be returned from the register"""
-        def setUp(self):
+class TestRegisterHasCoins(unittest.TestCase):
+    """ Test types of coins that can be returned from the register"""
+        
+    def setUp(self):
             self.register_has_coins = SodaMachine() 
 
-        def 
+    def test_register_has_coins(self):
+        """ Test that Quarter type can be returned from register """
+        answer = self.register_has_coins.register_has_coin('Quarter')
+        self.assertTrue(answer)
+
+    def test_register_has_coins(self):
+        """ Test that Dime type can be returned from register """
+        answer = self.register_has_coins.register_has_coin('Dime')
+        self.assertTrue(answer)
+
+    def test_register_has_coins(self):
+        """ Test that Nickel type can be returned from register """
+        answer = self.register_has_coins.register_has_coin('Nickel')
+        self.assertTrue(answer)
+
+    def test_register_has_coins(self):
+        """ Test that Penny type can be returned from register """
+        answer = self.register_has_coins.register_has_coin('Penny')
+        self.assertTrue(answer)
+
+    def test_register_has_coins(self):
+        """ Test that False type can be returned from register """
+        answer = self.register_has_coins.register_has_coin('test_coin')
+        self.assertFalse(answer)
+
+
+class TestDetermineChangevalue(unittest.TestCase):
+    """ Test types of coins that can be returned from the register"""
+        
+    def setUp(self):
+            self.determine_change_value = SodaMachine() 
+
+    def test_determine_change_value_total_higher(self):
+        """Test to ensure change value is correct """
+        amount = self.determine_change_value.determine_change_value(20, 5)
+        self.assertEquals(amount,15)
+    
+    def test_determine_change_value_soda_higher(self):
+        """Test to ensure change value is correct """
+        amount = self.determine_change_value.determine_change_value(5, 8)
+        self.assertEquals(amount,-3)
+
+    def test_determine_change_value_equal(self):
+        """Test to ensure change value is correct """
+        amount = self.determine_change_value.determine_change_value(5,5)
+        self.assertEquals(amount,0)
+ 
+
+
 
 
 
