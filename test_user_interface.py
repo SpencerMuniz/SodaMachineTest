@@ -71,7 +71,7 @@ class TestDisplayPaymentValue(unittest.TestCase):
         """Test displays zero when no money entered"""
         list_of_money = []
         total_value = user_interface.display_payment_value(list_of_money)
-        self.assertEqual(total_value, 0) 
+        self.assertEqual(total_value, 88) 
 
 
 class TestValidateCoinSelection(unittest.TestCase):
