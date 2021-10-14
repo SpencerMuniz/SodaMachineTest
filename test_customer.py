@@ -2,7 +2,7 @@ import unittest
 from backpack import Backpack
 from cans import Cola
 from customer import Customer
-from wallet import Wallet
+
 
 class TestGetWalletCoin(unittest.TestCase):
     """Tests for Customer's get_wallet_coin_method"""
