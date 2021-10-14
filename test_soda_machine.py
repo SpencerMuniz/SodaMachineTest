@@ -128,7 +128,7 @@ class TestCalculateCoinvalue(unittest.TestCase):
         self.assertEqual(.41,value_of_coins)
 
     def test_calculate_coin_value_empty(self):
-        """Test the calculation  of coin value wwith empty list"""
+        """Test the calculation  of coin value with empty list"""
        
         coinlist = []
         value_of_coins = self.calculate_coin_value.calculate_coin_value(coinlist)
