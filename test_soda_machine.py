@@ -162,11 +162,12 @@ class TestGetInventorySoda(unittest.TestCase):
         self.assertEqual(ResultOrangeSoda, None)
 
 class TestReturnInventroy(unittest.TestCase):
-
+    """Test returns a soda to the inventory"""
     def setUp(self):
         self.inventory = SodaMachine()
 
     def test_return_inventory(self):
+        """Test adds the can to the total amount of cans"""
         soda = Cola
         self.inventory.return_inventory(soda)
         length = len(self.inventory.inventory)
